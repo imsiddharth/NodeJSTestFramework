@@ -3,7 +3,7 @@ const defaultTimeoutInterval = process.env.DEBUG ? (60 * 60 * 500) : 90000;
 exports.config = {
 
     specs: [
-        './test/features/*.feature'
+        './test/features/travel.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -140,7 +140,7 @@ exports.config = {
 
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-    require: ['./test/stepDefinitions/common.js'],   // <string[]> (file/dir) require files before executing features
+        require: ['./test/stepDefinitions/common.js'],   // <string[]> (file/dir) require files before executing features
         backtrace: true,    // <boolean> show full backtrace for errors
         compiler: ['js:babel-core/register'], // <string[]> filetype:compiler used for processing required features
         failAmbiguousDefinitions: true,       // <boolean< Treat ambiguous definitions as errors
@@ -182,7 +182,7 @@ exports.config = {
     },
 
     after: function (capabilities, specs) {
-      //do your stuff
+        //do your stuff
     },
 
     beforeStep: function (stepResult) {
@@ -203,8 +203,8 @@ exports.config = {
     },
 
     beforeScenario: function (scenario) {
-      browser.deleteCookie();
-      browser.refresh();
+        browser.deleteCookie();
+        browser.refresh();
     },
     // afterScenario: function (scenarioResult) {
     //     //do your stuff
