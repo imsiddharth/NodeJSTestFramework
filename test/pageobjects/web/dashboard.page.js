@@ -34,34 +34,39 @@ class DashboardPage extends Page {
 
     open() {
         super.open('https://www.emirates.com/ae/english/');
-        browser.pause(2000);
-        // if (this.departureAirport.isVisible()) {
-        //     browser.pause(2000);
-        // }
+        // browser.pause(2000);
+        if (this.departureAirport.isVisible()) {
+            browser.pause(2000);
+        }
     }
 
     departure(airport) {
         this.clearDepartureAirport.click();
-        browser.pause(2000);
+        // browser.pause(2000);
+        // this.departureAirport.isEnabled();
+        this.departureAirport.isVisible();
         this.departureAirport.setValue(airport);
-        browser.pause(2000);
         const xpathAirport = "//div[contains(@class,'search-flight')]//p[text()='__replace__']";
         const newValue = utilMethods.updateXpath(xpathAirport, airport, '__replace__');
+        browser.isEnabled(newValue);
+        browser.isVisible(newValue);
         browser.click(newValue);
-        browser.pause(2000);
     }
 
     arrival(airport) {
 
         // this.clearArrivalAirport.click();
         // browser.pause(8000);
+        this.arrivalAirport.isVisible();
         this.arrivalAirport.setValue(airport);
-        browser.pause(10000);
+        browser.pause(2000);
         const xpathAirport = "//div[contains(@class,'search-flight')]//p[text()='__replace__']";
         const newValue = utilMethods.updateXpath(xpathAirport, airport, '__replace__');
-
+        browser.isEnabled(newValue);
+        browser.isVisible(newValue);
         browser.click(newValue);
-        browser.pause(2000);
+
+        // browser.pause(2000);
     }
 
 
@@ -71,7 +76,7 @@ class DashboardPage extends Page {
 
 
     departing() {
-        browser.pause(2000);
+        // browser.pause(2000);
         const xpath_departing_date = ".search-flight__datepicker [data-month='__month__'] [data-date='__date__']";
 
         const newDay = parseInt(this.day()) + 7;
@@ -82,30 +87,21 @@ class DashboardPage extends Page {
             const xpathMonthUpdate = utilMethods.updateXpath(xpath_departing_date, month, '__month__');
             const xpathDayUpdate = utilMethods.updateXpath(xpathMonthUpdate, day, '__date__');
             browser.click(xpathDayUpdate);
-            browser.pause(5000);
         } else {
             const xpathMonthUpdate = utilMethods.updateXpath(xpath_departing_date, parseInt(this.month()), '__month__');
             const xpathDayUpdate = utilMethods.updateXpath(xpathMonthUpdate, newDay, '__date__');
             browser.click(xpathDayUpdate);
-            browser.pause(5000);
         }
     }
 
 
     returning() {
-        browser.pause(2000);
+        // browser.pause(2000);
         const xpath_departing_date = ".search-flight__datepicker [data-month='__month__'] [data-date='__date__']";
         const month = parseInt(browser.getAttribute(".ek-datepicker__day--start", 'data-month'));
         const day = parseInt(browser.getAttribute(".ek-datepicker__day--start", 'data-date'));
 
-        console.log("\n\n\n\n\n\n\n\####################")
-        console.log(month);
-        console.log(day);
-
-        console.log("\n\n\n\n\n\n\n\####################")
-
-
-        const newDay = parseInt(day) + 7;
+        const newDay = day + 7;
 
         if (newDay > 31) {
             const month1 = month + 1;
@@ -113,18 +109,16 @@ class DashboardPage extends Page {
             const xpathMonthUpdate = utilMethods.updateXpath(xpath_departing_date, month1, '__month__');
             const xpathDayUpdate = utilMethods.updateXpath(xpathMonthUpdate, day1, '__date__');
             browser.click(xpathDayUpdate);
-            browser.pause(5000);
         } else {
             const xpathMonthUpdate = utilMethods.updateXpath(xpath_departing_date, month, '__month__');
             const xpathDayUpdate = utilMethods.updateXpath(xpathMonthUpdate, day, '__date__');
             browser.click(xpathDayUpdate);
-            browser.pause(5000);
         }
     }
 
 
     searchFlight(){
-        browser.pause(2000);
+        this.submit.isVisible();
         this.submit.click();
     }
 

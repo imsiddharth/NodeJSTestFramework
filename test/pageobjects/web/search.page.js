@@ -9,9 +9,10 @@ class SearchPage extends Page {
     }
 
     sortReturnFlighPrice(){
-        browser.pause(4000);
+        // browser.pause(4000);
+        browser.waitForEnabled(".inbound-list [data-value='price']");
         browser.click(".inbound-list [data-value='price']");
-        browser.pause(10000);
+        // browser.pause(10000);
     }
 
 }
