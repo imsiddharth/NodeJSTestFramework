@@ -4,12 +4,6 @@ export const updateXpath = (selector, replaceString, replacer) => {
 };
 
 
-// export const uniqueRand = () => {
-//     const rand = uniqueRandom(100, 999);
-//     return rand;
-// };
-
-
 export const utilMethods = {
     updateXpath
 };

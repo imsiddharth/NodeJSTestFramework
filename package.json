@@ -9,7 +9,9 @@
     "allure-report": "node_modules/.bin/allure generate ./test/reports/allure-results -c && allure open",
     "junit-report": "node_modules/.bin/junit-viewer --results=./test/reports/junit-results --save=junit-results.html && open junit-results.html",
     "babble-build": "node_modules/.bin/babel node_modules/babel-cli -d lib",
-    "test": "node node_modules/webdriverio/bin/wdio ./test/config/suite.web.conf.js"
+    "web": "node node_modules/webdriverio/bin/wdio ./test/config/suite.web.conf.js",
+    "api": "node node_modules/webdriverio/bin/wdio ./test/config/suite.api.conf.js",
+    "test": "node node_modules/webdriverio/bin/wdio ./test/config/suite.test.conf.js && npm run allure-report"
   },
   "keywords": [
     "selenium",
@@ -41,7 +43,9 @@
     "wdio-json-reporter": "^0.3.1",
     "wdio-junit-reporter": "0.4.4",
     "wdio-spec-reporter": "^0.1.5",
-    "webdriverio": "^4.13.1"
+    "webdriverio": "^4.13.1",
+    "request": "2.87.0",
+    "unirest": "^0.5.1"
   },
   "devDependencies": {
     "eslint": "^5.0.1",

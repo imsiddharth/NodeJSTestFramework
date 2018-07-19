@@ -3,7 +3,7 @@ const defaultTimeoutInterval = process.env.DEBUG ? (60 * 60 * 500) : 90000;
 exports.config = {
 
     specs: [
-        './test/features/travel.feature'
+        './test/features/validate-api.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -23,18 +23,18 @@ exports.config = {
     // set maxInstances to 1; wdio will spawn 3 processes. Therefore, if you have 10 spec
     // files and you set maxInstances to 10, all spec files will get tested at the same time
     // and 30 processes will get spawned. The property handles how many capabilities
-    // from the same test should run tests.
+    // // from the same test should run tests.
+    // //
+    // maxInstances: 1,
     //
-    maxInstances: 1,
-
-    capabilities: [
-
-        {
-            browserName: 'chrome',
-            // platform: 'Windows 10',
-            // version: '50.0',
-            maxInstances: '1',
-        },
+    // capabilities: [
+    //
+    //     {
+    //         browserName: 'chrome',
+    //         // platform: 'Windows 10',
+    //         // version: '50.0',
+    //         maxInstances: '1',
+    //     },
         //
         // {
         //     browserName: 'firefox',
@@ -100,13 +100,13 @@ exports.config = {
         //     // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
         //     "moz:firefoxOptions": { args: ['-headless'] }
         // },
-    ],
+    // ],
     //
     // ===================
     // Test Configurations
     // ===================
     // Define all options that are relevant for the WebdriverIO instance here
-    //
+
     // By default WebdriverIO commands are executed in a synchronous way using
     // the wdio-sync package. If you still want to run your tests in an async way
     // e.g. using promises you can set the sync option to false.
