@@ -17,6 +17,7 @@ git clone https://github.com/imsiddharth/NodeJSTestFramework.git
 
 3. To execute test cases open two terminal windows
 a. First teminal window
+   - npm run selenium-postinstall
    - npm run selenium-start
 b. Second Terminal window
   i. Execute all test and report will be open by default
